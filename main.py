@@ -5,7 +5,9 @@ from csv_generator import generate_valid_csv, generate_invalid_csv
 # Initialize logger
 logger = Logger()
 
-# Generate sample CSV files for testing
+print("CSV files generated.")
+
+# Generate sample CSV files
 generate_valid_csv("valid_pharma_data.csv")
 generate_invalid_csv("invalid_pharma_data.csv")
 
@@ -13,14 +15,14 @@ files = ["valid_pharma_data.csv", "invalid_pharma_data.csv"]
 
 for file in files:
 
-    print("Checking file:", file)
+    print(f"Checking file: {file}")
 
     # Validate filename
     if not validate_filename(file):
         logger.log_error(f"{file} -> Invalid filename")
         continue
 
-    # Validate file is not empty
+    # Validate empty file
     if not validate_empty_file(file):
         logger.log_error(f"{file} -> File is empty")
         continue
@@ -34,9 +36,11 @@ for file in files:
             logger.log_error(f"{file} -> Invalid headers")
             continue
 
-        # Validate each row
+        # Validate rows
         for row in f:
             if not validate_row(row):
                 logger.log_error(f"{file} -> Invalid row detected")
 
-    print(file, "passed validation")
+print(file, "passed validation")
+
+input("Press Enter to close the program...")
