@@ -1,3 +1,4 @@
+# UUID API module used to generate unique identifiers
 import requests
 
 def generate_uuid():
