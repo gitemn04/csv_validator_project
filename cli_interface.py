@@ -1,4 +1,3 @@
-# Command line interface for the pharmaceutical validation system
 def show_menu():
     print("Pharmaceutical Data Validation Software System")
     print("1. Download today's data")
