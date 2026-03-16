@@ -1,4 +1,3 @@
-# CSV generator module used to create sample pharmaceutical datasets
 import csv
 import random
 from datetime import datetime
