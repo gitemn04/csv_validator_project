@@ -12,3 +12,5 @@ remote repository management using GitHub, containerisation with Docker, and aut
 
 Overall, the system helps ensure that pharmaceutical data is checked for errors before it is accepted into the system,
 improving the reliability of the datasets used in research.
+
+Updated execution instructions for the CSV validation system.
