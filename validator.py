@@ -1,4 +1,3 @@
-# Validation module for pharmaceutical CSV datasets
 import os
 
 def validate_filename(filename):
