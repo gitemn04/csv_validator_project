@@ -1,4 +1,3 @@
-# Logger module used to record validation errors
 class Logger:
     _instance = None
 
