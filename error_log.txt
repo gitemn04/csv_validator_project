@@ -1,4 +1,2 @@
-valid_pharma_data.csv -> Invalid filename
-invalid_pharma_data.csv -> Invalid filename
-valid_pharma_data.csv -> Invalid filename
-invalid_pharma_data.csv -> Invalid filename
+MED_DATA_002.csv -> Invalid row detected
+MED_DATA_002.csv -> Invalid row detected
