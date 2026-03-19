@@ -35,12 +35,9 @@ def save_to_archive(filename):
     destination = os.path.join(folder, filename)
 
     try:
-        # Copy file
         shutil.copy(filename, destination)
-
         output_box.insert(tk.END, f"{filename} archived successfully\n", "success")
 
-        # Try to delete (ignore error)
         try:
             os.remove(filename)
         except:
@@ -56,18 +53,15 @@ def validate_files():
     for file in files:
         output_box.insert(tk.END, f"Checking file: {file}\n")
 
-        # Duplicate check
         if is_processed(file):
             output_box.insert(tk.END, f"{file} already processed\n\n")
             continue
 
-        # Filename validation
         if not validate_filename(file):
             logger.log_error(f"{file} -> Invalid filename")
             output_box.insert(tk.END, f"{file} Invalid filename\n")
             continue
 
-        # Empty file check
         if not validate_empty_file(file):
             logger.log_error(f"{file} -> File is empty")
             output_box.insert(tk.END, f"{file} File is empty\n")
@@ -95,6 +89,26 @@ def validate_files():
                 save_to_archive(file)
 
         output_box.insert(tk.END, "\n")
+
+
+# 🔥 NEW FEATURE: DATE SEARCH
+def search_by_date():
+    selected_date = date_entry.get()
+
+    folder = f"archive/{selected_date}"
+
+    output_box.insert(tk.END, f"\nSearching archive for: {selected_date}\n")
+
+    if os.path.exists(folder):
+        files = os.listdir(folder)
+
+        if files:
+            for f in files:
+                output_box.insert(tk.END, f"Found: {f}\n", "success")
+        else:
+            output_box.insert(tk.END, "No files found in this date\n")
+    else:
+        output_box.insert(tk.END, "No archive folder for this date\n")
 
 
 def update_file_list():
@@ -155,6 +169,11 @@ title = tk.Label(
 )
 title.pack(pady=10)
 
+# 🔥 DATE INPUT (AUTO FILLED WITH TODAY)
+date_entry = tk.Entry(root, font=("Arial", 10))
+date_entry.pack(pady=5)
+date_entry.insert(0, str(date.today()))
+
 # BUTTON FRAME
 btn_frame = tk.Frame(root, bg="#222831")
 btn_frame.pack()
@@ -182,6 +201,7 @@ def create_button(text, command):
 # BUTTONS
 create_button("Generate CSV Files", generate_files)
 create_button("Validate Files", validate_files)
+create_button("Search by Date", search_by_date)   # ✅ NEW
 create_button("Open Selected File", open_file)
 create_button("View Error Log", view_log)
 create_button("Refresh File List", update_file_list)
