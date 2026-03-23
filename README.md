@@ -1,14 +1,29 @@
-CSV Validator Project
-This project was created as part of the Unit 11 Advanced Programming assignment.
+# CSV Validator Project
 
-The purpose of the program is to validate pharmaceutical CSV datasets before they are stored or used in research.
-The system checks that each CSV file follows the correct format and that the data values meet the required rules. 
-If an error is detected, the system records the issue in an error log so that it can be reviewed later.
+This project was developed as part of the Unit 11 Advanced Programming assignment.
 
-The program is written in Python and organised into several modules that handle validation, logging, automation, and testing.
-Test CSV files can also be generated automatically to help simulate both valid and invalid datasets.
-The project also demonstrates modern software development practices such as version control with Git,
-remote repository management using GitHub, containerisation with Docker, and automated workflows using GitHub Actions.
+The system is designed to validate pharmaceutical CSV datasets before they are stored or used in research environments. It ensures that each file meets predefined structural and data integrity rules. Any errors detected during validation are recorded in an error log, allowing issues to be reviewed and corrected.
 
-Overall, the system helps ensure that pharmaceutical data is checked for errors before it is accepted into the system,
-improving the reliability of the datasets used in research.
+The application is implemented in Python and structured into multiple modules responsible for validation, logging, file tracking, and test data generation. A graphical user interface (GUI) built with Tkinter allows users to interact with the system easily.
+
+The system simulates a file processing workflow by retrieving files from a simulated FTP server, validating their contents, and storing valid files in a structured archive organised by date.
+
+## Key Features
+
+- Downloading files from a simulated FTP server
+- Detection of duplicate (already processed) files
+- Validation of CSV file structure and data values
+- Error logging with unique GUID identifiers
+- Archiving valid files into date-based folders
+- Search functionality to retrieve archived files by date
+
+## Technologies Used
+
+- Python
+- Tkinter (GUI)
+- File handling and validation logic
+- Git and GitHub for version control
+
+## Summary
+
+The system demonstrates core software engineering principles, including data validation, process automation, and structured storage. It provides a simplified model of a real-world pharmaceutical data processing system, ensuring data quality and reliability.
