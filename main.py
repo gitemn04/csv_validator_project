@@ -91,7 +91,7 @@ def validate_files():
         output_box.insert(tk.END, "\n")
 
 
-# 🔥 NEW FEATURE: DATE SEARCH
+# NEW FEATURE: DATE SEARCH
 def search_by_date():
     selected_date = date_entry.get()
 
@@ -138,6 +138,38 @@ def view_log():
 def clear_output():
     output_box.delete(1.0, tk.END)
 
+def download_from_ftp():
+    ftp_folder = "ftp_server"
+
+    output_box.insert(tk.END, "Connecting to FTP server...\n")
+
+    if not os.path.exists(ftp_folder):
+        output_box.insert(tk.END, "FTP folder not found\n")
+        return
+
+    files = os.listdir(ftp_folder)
+
+    if not files:
+        output_box.insert(tk.END, "No files on FTP server\n")
+        return
+
+    for file in files:
+
+        if not file.endswith(".csv"):
+            continue
+
+        if is_processed(file):
+            output_box.insert(tk.END, f"Skipped (already processed): {file}\n")
+            continue
+
+        source = os.path.join(ftp_folder, file)
+        destination = file
+
+        shutil.copy(source, destination)
+        output_box.insert(tk.END, f"Downloaded: {file}\n", "success")
+
+    output_box.insert(tk.END, "FTP download complete\n\n")
+    update_file_list()
 
 # -------------------------
 # HOVER EFFECT
@@ -200,13 +232,13 @@ def create_button(text, command):
 
 # BUTTONS
 create_button("Generate CSV Files", generate_files)
+create_button("Download from FTP", download_from_ftp)   # 👈 ADD THIS
 create_button("Validate Files", validate_files)
-create_button("Search by Date", search_by_date)   # ✅ NEW
+create_button("Search by Date", search_by_date)
 create_button("Open Selected File", open_file)
 create_button("View Error Log", view_log)
 create_button("Refresh File List", update_file_list)
 create_button("Clear Output", clear_output)
-
 # MAIN FRAME
 main_frame = tk.Frame(root, bg="#222831")
 main_frame.pack(pady=10)

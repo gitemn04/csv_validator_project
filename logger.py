@@ -1,3 +1,5 @@
+import uuid
+
 class Logger:
     _instance = None
 
@@ -7,5 +9,6 @@ class Logger:
         return cls._instance
 
     def log_error(self, message):
+        guid = uuid.uuid4()
         with open("error_log.txt", "a") as file:
-            file.write(message + "\n")
+            file.write(f"[{guid}] {message}\n")
