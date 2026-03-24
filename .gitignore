@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+error_log.txt
+archive/
+dist/
+build/
