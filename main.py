@@ -201,7 +201,7 @@ title = tk.Label(
 )
 title.pack(pady=10)
 
-# 🔥 DATE INPUT (AUTO FILLED WITH TODAY)
+#  DATE INPUT (AUTO FILLED WITH TODAY)
 date_entry = tk.Entry(root, font=("Arial", 10))
 date_entry.pack(pady=5)
 date_entry.insert(0, str(date.today()))
@@ -232,7 +232,7 @@ def create_button(text, command):
 
 # BUTTONS
 create_button("Generate CSV Files", generate_files)
-create_button("Download from FTP", download_from_ftp)   # 👈 ADD THIS
+create_button("Download from FTP", download_from_ftp)   #
 create_button("Validate Files", validate_files)
 create_button("Search by Date", search_by_date)
 create_button("Open Selected File", open_file)

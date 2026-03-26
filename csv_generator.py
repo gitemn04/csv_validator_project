@@ -3,7 +3,7 @@ import random
 from datetime import datetime
 
 
-# ✅ CORRECT headers (must match validator)
+#  CORRECT headers (must match validator)
 headers = ["batch", "timestamp", "value"]
 
 
@@ -28,7 +28,7 @@ def generate_invalid_csv(filename):
 
         writer.writerow(headers)
 
-        # ❌ invalid value (string instead of number)
+        #  invalid value (string instead of number)
         writer.writerow([
             1,
             datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),

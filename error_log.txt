@@ -1,1 +1,3 @@
 [7bac7e3a-1883-4154-a30d-6a30656cbfac] MED_DATA_002.csv -> Invalid row detected
+[54104cb7-bf88-4460-8304-de64875310cb] MED_DATA_002.csv -> Invalid row detected
+[9195191c-80d0-4920-8a32-1904937c770d] MED_DATA_002.csv -> Invalid row detected
